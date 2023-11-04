@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE CS</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="movement.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+    </style>
+
+  </head>
+  <body>
+    <header id="website-header" class="website-header-group">   
+    </header>
+
+    <main class="homepage-main">
+    </main>
+    
+
+    <footer id="footer">
+    </footer>
+
+    <script src="homepage.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+        const header = document.getElementById('website-header');
+        const scrollPosition = window.scrollY;
+        if(!scrollPosition > 0) {
+          header.style.background ='transparent';
+        } else{
+          header.style.background ='linear-gradient(90deg, rgb(236, 26, 9) 0%, rgb(134, 25, 26) 99%)';
+        }
+      });
+      
+      
+      function copyFooterContent() {
+        var websiteFooter = document.getElementById('footer');
+        var websiteIframe = document.createElement('iframe');
+        websiteIframe.style.display = 'none';
+        document.body.appendChild(websiteIframe);
+
+        websiteIframe.onload = function() {
+          const footerContent = websiteIframe.contentDocument.querySelector('.footer-content');
+          websiteFooter.appendChild(footerContent);
+          document.body.removeChild(websiteIframe);
+        };
+        websiteIframe.src = 'homepage.html';
+      }
+
+      function copyHeaderContent() {
+        var websiteHeader = document.getElementById('website-header');
+        var websiteIframe = document.createElement('iframe');
+        websiteIframe.style.display = 'none';
+        document.body.appendChild(websiteIframe);
+
+        websiteIframe.onload = function() {
+          const headerContent = websiteIframe.contentDocument.querySelector('#website-header');
+          websiteHeader.innerHTML = headerContent.innerHTML;
+          document.body.removeChild(websiteIframe);
+        };
+        websiteIframe.src = 'homepage.html';
+      }
+
+      window.onload = function() {
+        copyFooterContent();
+        copyHeaderContent();
+      };
+
+    </script>
+  </body>
+</html>
