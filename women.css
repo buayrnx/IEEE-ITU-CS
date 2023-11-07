@@ -193,6 +193,10 @@ body{
   z-index: 0;
 }
 
+.swimming-background{
+  width: 100%;
+}
+
 .swimming .wave.wave1{
   animation: animate 20s linear infinite;
   animation-delay: 0s;
